@@ -178,3 +178,59 @@ void jalankan() {
 
 };
 
+int tampilkanMenu() {
+int pilihan = 0;
+while (true) {
+clear();
+mvprintw(5, 10, "=== MENU UTAMA ===");
+mvprintw(7, 10, "[1] Mulai Permainan");
+mvprintw(8, 10, "[2] Keluar");
+mvprintw(10, 10, "Pilih (1/2): ");
+refresh();
+
+char masukan = getch();  
+    if (masukan == '1') {  
+        pilihan = 1;  
+        break;  
+    } else if (masukan == '2') {  
+        pilihan = 2;  
+        break;  
+    }  
+}  
+return pilihan;
+
+}
+
+std::string masukkanNamaPemain() {
+char nama[50];
+echo();
+clear();
+mvprintw(5, 10, "Masukkan Nama Pemain: ");
+getstr(nama);
+noecho();
+return std::string(nama);
+}
+
+int main() {
+initscr();
+noecho();
+curs_set(0);
+keypad(stdscr, TRUE);
+
+srand(time(0));  
+
+while (true) {  
+    int pilihan = tampilkanMenu();  
+    if (pilihan == 1) {  
+        std::string namaPemain = masukkanNamaPemain();  
+        PermainanUlar permainan(namaPemain);  
+        permainan.jalankan();  
+    } else if (pilihan == 2) {  
+        break;  
+    }  
+}  
+
+endwin();  
+return 0;
+
+}
