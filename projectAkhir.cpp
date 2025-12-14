@@ -5,6 +5,8 @@
 #include <unistd.h>
 #include <fstream>
 
+using namespace std;
+
 #define LEBAR 30
 #define TINGGI 20
 #define UKURAN_ULAR_AWAL 3
@@ -27,10 +29,10 @@ Titik makanan;
 JenisMakanan jenisMakanan;
 int arah X, int arah Y;
 bool permainanSelesai;
-std::string namaPemain;
+string namaPemain;
 
 public:
-PermainanUlar(const std::string&nama) {
+PermainanUlar(const string&nama) {
 skor = 0;
 arah X = 1;
 arah Y = 0;
@@ -201,7 +203,7 @@ return pilihan;
 
 }
 
-std::string masukkanNamaPemain() {
+string masukkanNamaPemain() {
 char nama[50];
 echo();
 clear();
@@ -222,7 +224,7 @@ srand(time(0));
 while (true) {  
     int pilihan = tampilkanMenu();  
     if (pilihan == 1) {  
-        std::string namaPemain = masukkanNamaPemain();  
+        string namaPemain = masukkanNamaPemain();  
         PermainanUlar permainan(namaPemain);  
         permainan.jalankan();  
     } else if (pilihan == 2) {  
