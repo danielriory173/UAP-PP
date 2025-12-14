@@ -62,3 +62,30 @@ void buatMakanan(){
 
 
 }
+
+
+void gambarPapan() {  
+    clear();  
+    for (int i = 0; i < LEBAR; ++i) {  
+        mvaddch(0, i, '#');  
+        mvaddch(TINGGI - 1, i, '#');  
+    }  
+    for (int i = 0; i < TINGGI; ++i) {  
+        mvaddch(i, 0, '#');  
+        mvaddch(i, LEBAR - 1, '#');  
+    }  
+
+    for (int i = 0; i < panjangUlar; ++i) {  
+        mvaddch(ular[i].y, ular[i].x, (i == 0) ? '@' : 'O');  
+    }  
+
+    if (jenisMakanan == BIASA) {  
+        mvaddch(makanan.y, makanan.x, '*');  
+    } else {  
+        mvaddch(makanan.y, makanan.x, 'B');  
+    }  
+
+    mvprintw(0, LEBAR + 2, "Pemain: %s", namaPemain.c_str());  
+    mvprintw(1, LEBAR + 2, "Skor: %d", skor);  
+    refresh();  
+}  
