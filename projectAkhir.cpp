@@ -49,7 +49,7 @@ void buatMakanan(){
     bool valid = false;
     while {!valid} {
         makanan.x = rand() % (LEBAR - 2) + 1;
-        makanan.y = tand() % (TINGGI - 2) + 1;
+        makanan.y = rand() % (TINGGI - 2) + 1;
 
         valid = true;
         for (int i = 0; i < panjangUlar; i++){
