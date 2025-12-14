@@ -38,6 +38,27 @@ permainanSlesai = false;
 panjangUlar = UKURAN_ULAR_AWAL;
 namaPemain = nama;
 
-int main(){
-    
+for (int i = 0; i < panjangUlar; i++){
+    ular[i] = {panjangUlar - i - 1, tinggi / 2};
+}
+    buat makanan();
+}
+void buatMakanan(){
+    bool valid = false;
+    while {!valid} {
+        makanan.x = rand() % (LEBAR - 2) + 1;
+        makanan.y = tand() % (TINGGI - 2) + 1;
+
+        valid = true;
+        for (int i = 0; i < panjangUlar; i++){
+            if (ular[i].x == makanan.x && ular[i].y == makanan.y){
+                valid = false;
+                break;
+            }
+        }
+    }
+                
+
+
+
 }
