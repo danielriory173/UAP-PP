@@ -4,6 +4,7 @@
 #include <ncurses/ncurses.h>
 #include <unistd.h>
 #include <fstream>
+#include <ctime>
 
 using namespace std;
 
@@ -13,7 +14,7 @@ using namespace std;
 #define UKURAN_ULAR_MAKS 100
 #define SKOR_BOOSTER 50
 
-struck titik{
+struct Titik{
 int x,y;
 };
 
@@ -27,27 +28,27 @@ Titik ular [UKURAN_ULAR_MAKS];
 int panjangUlar;
 Titik makanan;
 JenisMakanan jenisMakanan;
-int arah X, int arah Y;
+int arahX, arahY;
 bool permainanSelesai;
 string namaPemain;
 
 public:
 PermainanUlar(const string&nama) {
 skor = 0;
-arah X = 1;
-arah Y = 0;
-permainanSlesai = false;
+arahX = 1;
+arahY = 0;
+permainanSelesai = false;
 panjangUlar = UKURAN_ULAR_AWAL;
 namaPemain = nama;
 
 for (int i = 0; i < panjangUlar; i++){
-    ular[i] = {panjangUlar - i - 1, tinggi / 2};
+    ular[i] = {panjangUlar - i - 1, TINGGI / 2};
 }
-    buat makanan();
+    buatMakanan();
 }
 void buatMakanan(){
     bool valid = false;
-    while {!valid} {
+    while (!valid) {
         makanan.x = rand() % (LEBAR - 2) + 1;
         makanan.y = rand() % (TINGGI - 2) + 1;
 
@@ -59,16 +60,12 @@ void buatMakanan(){
             }
         }
     }
-                
-
-
-}
 if (rand() % 5 == 0) {  
         jenisMakanan = BOOSTER;  
     } else {  
         jenisMakanan = BIASA;  
     }  
-}  
+}              
 
 void gambarPapan() {  
     clear();  
